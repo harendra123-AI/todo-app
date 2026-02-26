@@ -3,8 +3,15 @@ from tkinter import ttk, messagebox
 import json
 import os
 from datetime import datetime
+import sys
 
-DATA_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "todos.json")
+if getattr(sys, 'frozen', False):
+    app_dir = os.path.dirname(sys.executable)
+else:
+    app_dir = os.path.dirname(os.path.abspath(__file__))
+
+DATA_FILE = os.path.join(app_dir, "todos.json")
+
 
 BG = "#1e1e2e"
 SURFACE = "#313244"
